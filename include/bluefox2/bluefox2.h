@@ -35,7 +35,7 @@ class Bluefox2 {
   bool IsCtmOnDemandSupported() const;
 
   // Settings
-  void SetAoi(int &width, int &height) const;
+  void SetAoi(int &width, int &height, int &start_x, int& start_y) const;
   void SetIdpf(int &idpf) const;
   void SetCbm(int &cbm) const;
 

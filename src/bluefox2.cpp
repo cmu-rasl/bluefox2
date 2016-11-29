@@ -122,7 +122,7 @@ void Bluefox2::Configure(Bluefox2DynConfig &config) {
   fi_->imageRequestReset(0, 0);
 
   // Area of Intreset
-  SetAoi(config.width, config.height);
+  SetAoi(config.width, config.height, config.start_x, config.start_y);
   // Pixel Format
   SetIdpf(config.idpf);
   // Binning
@@ -161,8 +161,11 @@ void Bluefox2::FillCaptureQueue(int &n) const {
   }
 }
 
-void Bluefox2::SetAoi(int &width, int &height) const {
-  // FIXEM: not implemented
+void Bluefox2::SetAoi(int &width, int &height, int &start_x, int &start_y) const {
+  WriteAndReadProperty(cam_set_->aoiHeight, height);
+  WriteAndReadProperty(cam_set_->aoiWidth, width);
+  WriteAndReadProperty(cam_set_->aoiStartX, start_x);
+  WriteAndReadProperty(cam_set_->aoiStartY, start_y);
 }
 
 void Bluefox2::SetIdpf(int &idpf) const {
